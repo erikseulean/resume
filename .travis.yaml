@@ -1,0 +1,32 @@
+
+   
+before_install:
+- sudo apt-get update
+- sudo apt-get install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended cm-super
+script: 
+- cd tex
+- mkdir _build
+- pdflatex -interaction=nonstopmode -output-directory=./_build resume.tex
+- bibtex ./_build/resume
+- pdflatex -interaction=nonstopmode -output-directory=./_build resume.tex
+- mkdir deploy
+- cp ./_build/resume.pdf ./deploy
+deploy:
+  - provider: releases
+    api_key:
+      secure: $TOKEN
+    file:
+      - ./_build/resume.pdf
+    skip_cleanup: true
+    on:
+      tags: true
+      branch: main
+  - provider: pages
+    local_dir: tex/deploy/
+    skip-cleanup: true
+    github-token: 
+          secure: $TOKEN
+    keep-history: true
+    on:
+      tags: true
+      branch: main

@@ -1,0 +1,234 @@
+%-------------------------
+% Resume in Latex
+% Author : Sourabh Bajaj
+% Website: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\hypersetup{
+colorlinks=true,
+urlcolor=blue
+}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-1pt}}
+  }
+}
+
+\newcommand{\workItem}[2]{
+  \item\small{
+    \textbf{#1}{#2 \vspace{-0.6pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-5pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4.6pt}}
+\newcommand{\resumeItemWorkDoneListStart}{\begin{itemize}}
+\newcommand{\resumeItemWorkDoneListEnd}{\end{itemize}\vspace{-5pt}}
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{/}{\Large Erik-Cristian Seulean}} & 
+    Email : \href{mailto:erikseulean@gmail.com}{erikseulean@gmail.com}\\ & 
+    Mobile : +44-780-496-3809\\ &
+    \href{https://www.linkedin.com/in/erikseulean/}{linkedin.com/in/erikseulean/}
+\end{tabular*}
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Bloomberg LP}{London, United Kingdom}
+      {Senior Software Engineer}{2019 - Present}
+      \resumeItemListStart
+        \resumeItem{Taxonomy and Metadata System}
+          {Infrastructure team developing a taxonomy and metadata system to support various asset classes at Bloomberg. Python, GraphQL, Redis, RabbitMQ, Solr, RDF, PostgreSQL, Data Pipeline}
+          \resumeItemListStart
+            \workItem{}
+              {\textbf{Architect of various ingestion pipelines} that handle ingestion of metadata for datasets such as commodity index tickers.}
+            \workItem{}
+              {Added \textbf{support for sharding} to increase the speed of the ingestion pipeline. Split up the initial ingestion into 8 shards that are running distributed across an entire cluster.}
+              \workItem{}
+              {Implemented node overlay and concatenation executed on RDF graphs.}
+              \workItem{}
+              {Worked on \textbf{rearchitecting the ingestion pipeline} from a synchronous pipeline to a file based ingestion.}
+              \workItem{}
+              {Migrated the codebase from Python 2 to Python 3 \textbf{decreasing the overall response time of services by 15}\%}
+              \workItem{}
+              {Implemented services in GraphQL to avoid overfetching and underfetching on the existing Bloomberg specific microservice framework.}
+              \workItem{}
+              {Leading \textbf{intergration of the metadata system with timeseries datasets}, a company wide effort to support non-tickerized data.}              
+              \workItem{}
+              {Working on a side project, debugging tool, to help find metadata for given entities regardless of the source of provenience, using a \textbf{topological sort algorithm on service APIs and RDF Graphs}.}
+              \workItem{}
+              {Leading the \textbf{research into adoption of triplestores} at Bloomberg, an effort across 6 departments towards choosing the right solution to cover the usecases presented at Bloomberg. Actively researching into solutions such as Virtuoso or TerminusDB.}
+              \workItem{}
+              {Organizing weekly department-wide design discussions, to share knowledge regarding ongoing work.}
+              \workItem{}
+              {Team lead backup for a team of 7 engineers.}
+          \resumeItemListEnd
+        \resumeItemListEnd
+      \resumeSubheading
+        {Bloomberg LP} {London, United Kingdom}
+        {Software Engineer}{2016 - 2019}
+      \resumeItemListStart
+        \resumeItem{Real Time Analytics}
+          {Application team, maintaining a large variety of analytics, integrated in different products across Bloomberg. Processing several billion trades per day. C++, Distributed, Realtime}
+          \resumeItemListStart
+            \workItem{}
+              {Implemented Average Volume at Time for non equities and Top Exchanges in the past X minutes.} 
+            \workItem{}
+              {Implemented a \textbf{load testing facility} that is used to simulate the impact of market open on the system to assess performance and capacity. I identified a bottleneck in the system and by fixing it, subscriptions are being processed 3 times faster.}
+    		\workItem{}
+              {\textbf{Increased availability} of an analytic by implementing fallback to disk in case the database connection cannot be established. This prevents the 1 minute downtime per week when the database cluster is being rebooted.}
+          \resumeItemListEnd
+        \resumeItem{Recommendation Disclosures and Trade Ideas}
+        {Python, Typescript, Microservices, Event Sourcing}
+        \resumeItemListStart
+          \workItem{}
+              {Implemented asynchronous messaging using RabbitMQ to allow distribution of recommendations. Added support to publish messages, implemented consumers and set up the middleware.}
+          \workItem{}
+            {Reduced the codebase by 8\% by removing around 100.000 lines of dead or unused code.}            
+        \resumeItemListEnd
+      \resumeItemListEnd    
+  \resumeSubHeadingListEnd
+
+%--------PROGRAMMING SKILLS------------
+\section{Skills}
+ \resumeSubHeadingListStart             
+    \resumeItem {Coding}
+      \resumeItemListStart
+        \resumeItem {attrs-strict https://github.com/bloomberg/attrs-strict}
+        {Created and open-sourced a library that allows runtime validation for attrs dataclasses in Python.}
+        \resumeItem {bloomberg-bas-middleware}
+        {Maintainer and creator of an inner source library used for Python services at Bloomberg. Created Flask-like middlewares that are used in thousands of the services running in Python 3 at Bloomberg.}
+        \resumeItem {Python Guild}
+        {Part of a group of 18 engineers leading the direction and adoption of Python at Bloomberg, leading the Design Reviews Working group, helping teams to bring projects to a broader audience.}
+        \resumeItem {ML 101}
+        {Participated in a 6 month hands on Machine Learning training. The timeseries clustering project developed in a team of 3 was one of the 2 projects out of 15 to be showcased in front of senior management at Bloomberg.}  
+      \resumeItemListEnd
+    \resumeItem {Public speaking for large audiences}
+      \resumeItemListStart
+        \workItem{}
+        {\textbf{"How to migratate services to Python 3"} -  Attendance of over 200 engineers.}
+        \workItem{}
+        {\textbf{"Modeling the commodity world"} - Presentation on the architecture of the system I worked on and the different architectural decisions taken in the past years. Attendance of over 150 engineers.}
+      \resumeItemListEnd
+    \resumeItem {Mentorship}
+      \resumeItemListStart
+        \workItem{}
+        {Mentored in workshops to help engineers migrate their services to Python 3.}
+        \workItem{}
+        {Mentored an intern during the summer internship program and actively mentoring new joiners.}
+      \resumeItemListEnd
+   \item{
+     \textbf{Architecture and technology}{: Large scale distributed systems, Microservices, GraphQL, PostgreSQL, Redis, Solr, RabbitMQ, Event Sourcing, Git, RDF}
+   }
+   \item{
+     \textbf{Languages}{: Python, Javascript, Typescript, SQL, C\#}
+   }
+   \item{
+     \textbf{Mathematics}{: A good understanding of probability theory, random events and basic knowledge of statistical inference.}
+   }
+   \item{
+     \textbf{Languages spoken}{: I speak English(IELTS Grade 8.0) and Romanian fluently. Currently living in London.}
+   }   	
+ \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------
+\section{Personal Projects}
+  \resumeSubHeadingListStart
+    \resumeSubItem {Cryptocurrency analysis https://github.com/erikseulean/cryptoscraping}
+    {(January 2018) Scraped cryptocurrency data from different sources and created a library that allows to easily analyse prices, market cap and volume. I implemented and plotted the Ichimoku indicator and created correlation plots between google trends and different cryptocurrencies. Python: Numpy, Pandas, Matplotlib, Multiprocessing, Jupyter}
+    \resumeSubItem{ColorBlocks}
+      {(November 2015) � Awarded 2nd prize competing against 12 teams at HackTM, the largest Hackathon in Eastern Europe lasting 50 hours straight. I was part of a team of three and we developed a cross-platform puzzle game for mobile and tablet devices. Available on Google Play as ColorBlocks. LUA}
+    \resumeSubItem{Cycling Community Platform}
+    	{(October 2012) � Awarded 2nd prize competing against 20 teams in Microsoft Excite, three week competition. Developed a mobile and web based platform for the local cycling community. I was part of a team of three students. C\#.NET, Javascript, SQL}
+  \resumeSubHeadingListEnd
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Politechnica University of Timisoara}{Timisoara, Romania}
+      {B.S.E in Computer Science}{July, 2014}
+    \resumeItemListStart
+    	\resumeItem{Modules}
+        {Software Engineering, Computer Architecture, Algorithms, Software Development Fundamentals, Design Patterns, Programming Languages, Databases}
+    \resumeItemListEnd
+    \resumeSubheading
+      {University of Sheffield}{Remote, United Kingdom}
+      {Graduate Certificate in Statistics}{First-Class Honours}
+    \resumeItemListStart
+    	\resumeItem{Modules}
+        {Mathematical Methods for Statistics, Probability and Probability Distributions, Basic Statistics}
+    \resumeItemListEnd
+    \resumeSubheading
+      {University of Sheffield}{Remote, United Kingdom}
+      {Graduate Certificate in Statistics}{First-Class Honours}
+    \resumeItemListStart
+    	\resumeItem{Modules}
+        {Mathematical Methods for Statistics, Probability and Probability Distributions, Basic Statistics}
+    \resumeItemListEnd        
+  \resumeSubHeadingListEnd
+
+\end{document}
