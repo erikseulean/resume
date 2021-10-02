@@ -7,7 +7,6 @@ script:
 - cd tex
 - mkdir _build
 - pdflatex -interaction=nonstopmode -output-directory=./_build resume.tex
-- bibtex ./_build/resume
 - mkdir deploy
 - cp ./_build/resume.pdf ./deploy
 deploy:
