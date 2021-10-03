@@ -61,6 +61,13 @@ urlcolor=blue
   }
 }
 
+\newcommand{\resumeCoding}[1]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} \\      
+    \end{tabular*}\vspace{-5pt}
+}
+
 \newcommand{\resumeSubheading}[4]{
   \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
@@ -97,7 +104,7 @@ urlcolor=blue
   \resumeSubHeadingListStart
     \resumeSubheading
       {Bloomberg LP}{London, United Kingdom}
-      {Senior Software Engineer}{2019 - Present}
+      {Senior Software Engineer}{2019 - 2021}
       \resumeItemListStart
         \resumeItem{Taxonomy and Metadata System}
           {Infrastructure team developing a taxonomy and metadata system to support various asset classes at Bloomberg. Python, GraphQL, Redis, RabbitMQ, Solr, RDF, PostgreSQL, Data Pipeline}
@@ -152,46 +159,46 @@ urlcolor=blue
   \resumeSubHeadingListEnd
 
 %--------PROGRAMMING SKILLS------------
-% \section{Skills}
-%  \resumeSubHeadingListStart             
-%     \resumeItem {Coding}
-%       \resumeItemListStart
-%         \resumeItem {attrs-strict https://github.com/bloomberg/attrs-strict}
-%         {Created and open-sourced a library that allows runtime validation for attrs dataclasses in Python.}
-%         \resumeItem {bloomberg-bas-middleware}
-%         {Maintainer and creator of an inner source library used for Python services at Bloomberg. Created Flask-like middlewares that are used in thousands of the services running in Python 3 at Bloomberg.}
-%         \resumeItem {Python Guild}
-%         {Part of a group of 18 engineers leading the direction and adoption of Python at Bloomberg, leading the Design Reviews Working group, helping teams to bring projects to a broader audience.}
-%         \resumeItem {ML 101}
-%         {Participated in a 6 month hands on Machine Learning training. The timeseries clustering project developed in a team of 3 was one of the 2 projects out of 15 to be showcased in front of senior management at Bloomberg.}  
-%       \resumeItemListEnd
-%     \resumeItem {Public speaking for large audiences}
-%       \resumeItemListStart
-%         \workItem{}
-%         {\textbf{"How to migratate services to Python 3"} -  Attendance of over 200 engineers.}
-%         \workItem{}
-%         {\textbf{"Modeling the commodity world"} - Presentation on the architecture of the system I worked on and the different architectural decisions taken in the past years. Attendance of over 150 engineers.}
-%       \resumeItemListEnd
-%     \resumeItem {Mentorship}
-%       \resumeItemListStart
-%         \workItem{}
-%         {Mentored in workshops to help engineers migrate their services to Python 3.}
-%         \workItem{}
-%         {Mentored an intern during the summer internship program and actively mentoring new joiners.}
-%       \resumeItemListEnd
-%    \item{
-%      \textbf{Architecture and technology}{: Large scale distributed systems, Microservices, GraphQL, PostgreSQL, Redis, Solr, RabbitMQ, Event Sourcing, Git, RDF}
-%    }
-%    \item{
-%      \textbf{Languages}{: Python, Javascript, Typescript, SQL, C\#}
-%    }
-%    \item{
-%      \textbf{Mathematics}{: A good understanding of probability theory, random events and basic knowledge of statistical inference.}
-%    }
-%    \item{
-%      \textbf{Languages spoken}{: I speak English(IELTS Grade 8.0) and Romanian fluently. Currently living in London.}
-%    }   	
-%  \resumeSubHeadingListEnd
+\section{Skills}
+ \resumeSubHeadingListStart
+    \resumeCoding {Coding}
+      \resumeItemListStart
+        \resumeItem {attrs-strict https://github.com/bloomberg/attrs-strict}
+        {Created and open-sourced a library that allows runtime validation for attrs dataclasses in Python.}
+        \resumeItem {bloomberg-bas-middleware}
+        {Maintainer and creator of an inner source library used for Python services at Bloomberg. Created Flask-like middlewares that are used in thousands of the services running in Python 3 at Bloomberg.}
+        \resumeItem {Python Guild}
+        {Part of a group of 18 engineers leading the direction and adoption of Python at Bloomberg, leading the Design Reviews Working group, helping teams to bring projects to a broader audience.}
+        \resumeItem {ML 101}
+        {Participated in a 6 month hands on Machine Learning training. The timeseries clustering project developed in a team of 3 was one of the 2 projects out of 15 to be showcased in front of senior management at Bloomberg.}  
+      \resumeItemListEnd
+    \resumeCoding {Public speaking for large audiences}
+      \resumeItemListStart
+        \workItem{}
+        {\textbf{"How to migratate services to Python 3"} -  Attendance of over 200 engineers.}
+        \workItem{}
+        {\textbf{"Modeling the commodity world"} - Presentation on the architecture of the system I worked on and the different architectural decisions taken in the past years. Attendance of over 150 engineers.}
+      \resumeItemListEnd
+    \resumeCoding {Mentorship}
+      \resumeItemListStart
+        \workItem{}
+        {Mentored in workshops to help engineers migrate their services to Python 3.}
+        \workItem{}
+        {Mentored an intern during the summer internship program and actively mentoring new joiners.}
+      \resumeItemListEnd
+   \item{
+     \textbf{Architecture and technology}{: Large scale distributed systems, Microservices, GraphQL, PostgreSQL, Redis, Solr, RabbitMQ, Event Sourcing, Git, RDF}
+   }
+   \item{
+     \textbf{Languages}{: Python, Javascript, Typescript, SQL, C\#}
+   }
+   \item{
+     \textbf{Mathematics}{: A good understanding of probability theory, random events and basic knowledge of statistical inference.}
+   }
+   \item{
+     \textbf{Languages spoken}{: I speak English(IELTS Grade 8.0) and Romanian fluently. Currently living in London.}
+   }   	
+ \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------------
 \section{Personal Projects}
@@ -217,17 +224,18 @@ urlcolor=blue
     \resumeItemListEnd
     \resumeSubheading
       {University of Sheffield}{Remote, United Kingdom}
-      {Graduate Certificate in Statistics}{First-Class Honours}
+      {Graduate Certificate in Statistics}{First-Class Honours, July 2021}
     \resumeItemListStart
     	\resumeItem{Modules}
         {Mathematical Methods for Statistics, Probability and Probability Distributions, Basic Statistics}
     \resumeItemListEnd
     \resumeSubheading
-      {University of Sheffield}{Remote, United Kingdom}
-      {Graduate Certificate in Statistics}{First-Class Honours}
+      {University of St. Andrews}{United Kingdom}
+      {MSc Statistics} {Due August 2022}
+      
     \resumeItemListStart
     	\resumeItem{Modules}
-        {Mathematical Methods for Statistics, Probability and Probability Distributions, Basic Statistics}
+        {Markov Chains, Bayesian Statistics, Multivariate Analysis, Statistical Modelling using GLMs, Quantitative risk analysis}
     \resumeItemListEnd        
   \resumeSubHeadingListEnd
 
