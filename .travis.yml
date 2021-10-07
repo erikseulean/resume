@@ -6,15 +6,15 @@ before_install:
 script: 
 - cd tex
 - mkdir _build
-- pdflatex -interaction=nonstopmode -output-directory=./_build resume.tex
+- pdflatex -interaction=nonstopmode -output-directory=./_build ErikCristianSeulean_resume.tex
 - mkdir deploy
-- cp ./_build/resume.pdf ./deploy
+- cp ./_build/ErikCristianSeulean_resume.pdf ./deploy
 deploy:
   - provider: releases
     api_key:
       secure: g2N3BzQfDebXk9TsfkJIN81ceVSOeqAwz81ZMryIvgal8fh6v80hRybTPhCKdo5AL7j2M8U2ldCDKO88AyESBbaUIt+mnJUHY08fhG6Wan61VMZjvEuZ00sWjNT3OvlBcm9N0s9kw4UxY6tvTwm690yicYFXEIcU7ZDhVhYTxhUPbCupAjy5+JawqX2Mq2RLTYrtwvRm9LnSivXSSIU49aXCu+gTo7pCKAZ5s/CjchQV1xAo3rBM+axXgswl7ANh4pa4gZ5gUKErnLhB0TYr3KpVnZzykoHgVBsN6/cKHg4z1bCf2XBMvuFu/Ml8/9qh6pCn5habz/FCR9s/sMF5pcAebLH9Hb6Vj/zowfol3gEapZlrg1E3/OVSy6xIhz8h3pPnLGhsSPfyj8e0dKyAhuDLQiHj77tuG3AcZziY6bitfyFFPcGI2wPE6ByDia6mGR4rF7O+E/a0dxvY8hrtfIKuI6o3Dk5KHoUvSimZkrYdp4w0J6btm9/gamg/JGuT1NQbTbvPQR/KknxxfegN3+lzrzmZd3UfgPYXDhh44wPk8p7lvw49ZJqcXzEiRnJ8EEZHssrdpo/dj62BIwL8KGfgYu1B8PHP8rVInzuSWF7NnSyjDtXdhF7oLnUCSWnwiy94mpN0zj8M01DYFcN7KxFRrTyLWCJ2LdV2mrNPoCE=
     file:
-      - ./_build/resume.pdf
+      - ./_build/ErikCristianSeulean_resume.pdf
     skip_cleanup: true
     on:
       tags: true
