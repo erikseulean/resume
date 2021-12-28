@@ -9,8 +9,8 @@ jobs:
 
       - name: Install packages 
         run: |
-          apt-get update
-          apt-get install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended cm-super
+          sudo apt-get update
+          sudo apt-get install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended cm-super
 
       - name: Build pdf
         run: |
