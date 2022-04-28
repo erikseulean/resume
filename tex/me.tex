@@ -138,22 +138,75 @@ urlcolor=blue
           \resumeItemListStart
             \workItem{}
               {\textbf{Architected ingestion pipelines} that handle ingestion of metadata for datasets such as commodity index tickers.}
+              \newline
+              {\textbf{\large{
+                \begin{itemize}
+                  \item Add support for idxmddb tickers, and help with the migration. Make sure that tickers originating in both databases are fine, have the option to have tickers that are duplicated but not released, to help engineers check them.
+                  \item Add extra storage to support extra usecases available and reduce the pressure on the existing solutions. Research on the best way to store the data and find out how to store the data to get the best performance.
+                  \item Rework to move slow ingestion parts offline and preprocessed. (Eg. move expandsources from being a step in the ingestion pipeline to being done offline.)
+                \end{itemize}
+                }}}
             \workItem{}
               {Added \textbf{support for sharding} to increase the speed of the ingestion pipeline. Split up the initial ingestion into 8 shards that are running distributed across an entire cluster.}
+              {\textbf{\large{
+                \begin{itemize}
+                  \item Initially, the ingestion was done based on one RDF file, which deemed slow. I added support for sharding, which means that a file was split into multiple shards that could be ingested by multiple processes running in parallel on different machines.
+                \end{itemize}
+              }}}
               \workItem{}
               {Implemented node overlay and concatenation executed on RDF graphs.}
               \workItem{}
               {Worked on \textbf{rearchitecting the ingestion pipeline} from a synchronous pipeline to a file based ingestion.}
+              {\textbf{\large{
+                \begin{itemize}
+                  \item Initially everything in the pipeline was synchronous, using RabbitMQ. Messages would fly from one worker to another through a queue. This was problematic over time as sometimes workers ended up being slower and queues would fill up. Generally the team was slowed down by this because they had to take into account the performance concerns of everything that they were working on. The idea was to make every worker instead of write to a queue, output a file, with all the changes and have the next worker in line pick up that file. The end goal (Golden city) was to have this working using notifications.
+                \end{itemize}
+              }}}
               \workItem{}
               {Migrated the codebase from Python 2 to Python 3 \textbf{decreasing the overall response time of services by 15}\%}
+              {\textbf{\large{
+                \begin{itemize}
+                  \item Faster due to Infrastructure team reworking the services and the way the objects were being deserialized in python. For the python 2 version, every parameter on an object required a round trip call into C code, while for python 3, everything was deserialized with one single call to C code.
+                \end{itemize}
+              }}}
               \workItem{}
               {Implemented services in GraphQL to avoid overfetching and underfetching on the existing Bloomberg specific microservice framework.}
+
+              {\textbf{\large{
+                \begin{itemize}
+                  \item The RPC calls that we were making would always either fetch more data or the user would be required to make more than one call to actually get the data. Change this by implementing some services in GraphQL rather than RPC and allow the user to specify exactly what they need.
+                  \item Remove the need for client bespoke queries.  
+                \end{itemize}
+              }}}
               \workItem{}
-              {Led \textbf{intergration of the metadata system with timeseries datasets}, a company wide effort to support non-tickerized data.}              
+              {Led \textbf{intergration of the metadata system with timeseries datasets}, a company wide effort to support non-tickerized data.}
+              
+              {\textbf{\large{
+                \begin{itemize}
+                  \item Separate team that was formed with me (part of the taxonomy team) and two others part of the data team. The goal was to get the nonsecuritized data into athena (datasets) and timeseries that were not tickerized. 
+                \end{itemize}
+              }}}
+
               \workItem{}
               {Worked on a side project, debugging tool, to help find metadata for given entities regardless of the source of provenience, using a \textbf{topological sort algorithm on service APIs and RDF Graphs}.}
+
+              {\textbf{\large{
+                \begin{itemize}
+                  \item Given an entity, and all the existing sources of data, find everything that you can about that entity, from various systems that we own and expand further. This helps find discrepancies between the data or missing data. Uses 
+                \end{itemize}
+              }}}
               \workItem{}
               {Led the \textbf{research into adoption of triplestores} at Bloomberg, an effort across 6 departments towards choosing the right solution to cover the usecases presented at Bloomberg. Researched on solutions such as Virtuoso or TerminusDB.}
+
+              {\textbf{\large{
+                \begin{itemize}
+                  \item Various teams having data in RDF format but generally no good storage for it. 
+                  \item Initially consider only open-source free solutions and see if they work.
+                  \item Split the work in a team of 7, research different solutions.
+                  \item Virtuoso was not good enough because (the open source version) didn't support replication and this is not a valid SLA for a datastorage at Bloomberg.
+                  \item TerminusDB loads everything in memory to achieve good query performances, but this solution wasn't useful either. 
+                \end{itemize}
+              }}}
               \workItem{}
               {Organized weekly department-wide design discussions, to share knowledge regarding ongoing work.}
               \workItem{}
@@ -168,9 +221,19 @@ urlcolor=blue
           {Application team, maintaining a large variety of analytics, integrated in different products across Bloomberg. Processing several billion trades per day. C++, Distributed, Realtime}
           \resumeItemListStart
             \workItem{}
-              {Implemented Average Volume at Time for non equities and Top Exchanges in the past X minutes.} 
+              {Implemented Average Volume at Time for non equities and Top Exchanges in the past X minutes.}
+              {\textbf{\large{
+                \begin{itemize}
+                  \item Average volume at time - for a request with given time interval and a ticker, bucketize based on the time interval starting from the beginning of the trading day and find the trades that felt in each interval, and calculate the average volume. 
+                \end{itemize}
+              }}}
             \workItem{}
               {Implemented a \textbf{load testing facility} that is used to simulate the impact of market open on the system to assess performance and capacity. I identified a bottleneck in the system and by fixing it, subscriptions are being processed 3 times faster.}
+              {\textbf{\large{
+                \begin{itemize}
+                  \item At the begining of the day, when trading hours open, we were subscribing to tickerplant data. This subscriptions required a request sent on our end and we realised they are slow. The reason was that the service handling the request was dispatching one request at a time when it had capacity to use more threads in the threadpool. 
+                \end{itemize}
+              }}}
     		\workItem{}
               {\textbf{Increased availability} of an analytic by implementing fallback to disk in case the database connection cannot be established. This prevents the 1 minute downtime per week when the database cluster is being rebooted.}
           \resumeItemListEnd
@@ -179,6 +242,11 @@ urlcolor=blue
         \resumeItemListStart
           \workItem{}
               {Implemented asynchronous messaging using RabbitMQ to allow distribution of recommendations. Added support to publish messages, implemented consumers and set up the middleware.}
+              {\textbf{\large{
+                \begin{itemize}
+                  \item Share a recommendation with others. 
+                \end{itemize}
+              }}}
           \workItem{}
             {Reduced the codebase by 8\% by removing around 100.000 lines of dead or unused code.}            
         \resumeItemListEnd
@@ -194,6 +262,18 @@ urlcolor=blue
         {Created and open-sourced a library that allows runtime validation for attrs dataclasses in Python.}
         \resumeItem {bloomberg-bas-middleware}
         {Maintainer and creator of an inner source library used for Python services at Bloomberg. Created Flask-like middlewares that are used in over 10.000 services running in Python 3 at Bloomberg. Any new service has by default the functionality opted-in.}
+        {\textbf{\large{
+          \begin{itemize}
+            \item Early adopter of new Python 3 services. This made me think that we could standardize best practices, given that we were expecting all the future services in the company to change to Python 3 and use these services.
+            \item Added plug-in functionalities, such as request logging and timing
+            \item Uncaught exception handling
+            \item Some syntactic sugar improvements
+            \item Create a dependency injection manager that allows testing the handlers by injecting mock resouce instances (eg. database connections).
+            \item Leveraged Python's MRO(method resolution order) and allowed independent components to be composed together
+            \item By default newly created services have some of the features enabled by default while the others are opt-in.
+            \item Latest work on supporting asynchronous logging of events (either through a separate thread or using some hub existing for c++).  
+          \end{itemize}
+        }}}
         \resumeItem {Python Guild}
         {Part of a group of 18 engineers leading the direction and adoption of Python at Bloomberg, led the Design Reviews Working group, helping teams to bring projects to a broader audience.}
         \resumeItem {ML 101}
