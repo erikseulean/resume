@@ -15,7 +15,8 @@ jobs:
       - name: Build pdf
         run: |
           mkdir build
-          pdflatex -interaction=nonstopmode -output-directory=build tex/ErikCristianSeulean_resume.tex tex/me.tex
+          pdflatex -interaction=nonstopmode -output-directory=build tex/ErikCristianSeulean_resume.tex 
+          pdflatex -interaction=nonstopmode -output-directory=build tex/me.tex
           mkdir deploy
           cp build/*.pdf deploy 
 
