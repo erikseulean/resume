@@ -44,46 +44,46 @@ urlcolor=blue
 
 % Sections formatting
 \titleformat{\section}{
-  \vspace{-6pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
 %-------------------------
 % Custom commands
 \newcommand{\resumeItem}[2]{
   \item\small{
-    \textbf{#1}{: #2 \vspace{-2pt}}
+    \textbf{#1}{: #2 \vspace{-1pt}}
   }
 }
 
 \newcommand{\workItem}[2]{
   \item\small{
-    \textbf{#1}{#2 \vspace{-1.5pt}}
+    \textbf{#1}{#2 \vspace{-0.6pt}}
   }
 }
 
 \newcommand{\resumeCoding}[1]{
-  \vspace{-2pt}\item
+  \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textbf{#1} \\
-    \end{tabular*}\vspace{-6pt}
+      \textbf{#1} \\      
+    \end{tabular*}\vspace{-5pt}
 }
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
+  \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-6pt}
+    \end{tabular*}\vspace{-5pt}
 }
 
-\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-6pt}}
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-5pt}}
 
 \renewcommand{\labelitemii}{$\circ$}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-6pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4.6pt}}
 \newcommand{\resumeItemWorkDoneListStart}{\begin{itemize}}
 \newcommand{\resumeItemWorkDoneListEnd}{\end{itemize}\vspace{-5pt}}
 %-------------------------------------------
@@ -97,53 +97,59 @@ urlcolor=blue
   \textbf{\href{/}{\Large Erik-Cristian Seulean}} & 
     Email : \href{mailto:erikseulean@gmail.com}{erikseulean@gmail.com}\\ & 
     Mobile : +44-780-496-3809\\ &
-    \href{https://www.linkedin.com/in/erikseulean/}{linkedin.com/in/erikseulean/}\\ &
-    Citizenship: British, Romanian, Hungarian
+    \href{https://www.linkedin.com/in/erikseulean/}{linkedin.com/in/erikseulean/}
 \end{tabular*}
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of St. Andrews}{United Kingdom}
+      {MSc Statistics} {Distinction, Deans' List, grade 17.9/20, September 2022}
+    \resumeItemListStart
+    	\resumeItem{Modules}
+        {Markov Chains, Bayesian Statistics, Multivariate Analysis, Statistical Modelling using GLM/GAMs, Quantitative risk analysis, Machine Learning}
+      \resumeItem{Dissertation}
+        {An Ensemble of HMM and KNN for signal generation in horse betting markets. Grade 19.3/20 - Highest grade in my cohort}   
+    \resumeItemListEnd
+    \resumeSubheading
+      {University of Sheffield}{Remote, United Kingdom}
+      {Graduate Certificate in Statistics}{Distinction, grade 90/100, July 2021}
+    \resumeItemListStart
+    	\resumeItem{Modules}
+        {Mathematical Methods for Statistics, Probability and Probability Distributions, Basic Statistics}
+    \resumeItemListEnd
+    \resumeSubheading
+      {Politechnica University of Timisoara}{Timisoara, Romania}
+      {B.S.E in Computer Science}{July, 2014}
+    \resumeItemListStart
+    	\resumeItem{Modules}
+        {Software Engineering, Computer Architecture, Algorithms, Software Development Fundamentals, Design Patterns, Programming Languages, Databases}
+    \resumeItemListEnd        
+  \resumeSubHeadingListEnd
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
   \resumeSubHeadingListStart
     \resumeSubheading
-      {Citadel (Fixed Income and Macro)}{London, United Kingdom}
-      {Senior Software Engineer $\to$ Engineering Manager}{April 2023 - Present}
+      {Citadel}{London, United Kingdom}
+      {Senior Software Engineer}{April 2023 - Present}
       \resumeItemListStart
-        \resumeItem{Research Data Platform (Storage \& API Layer)}
-          {}
+        \resumeItem{Global Fixed Income - Data}
+          {Infrastructure team that is in charge of both real-time and reference data for the entire department. Kafka, Airflow, Python, C++, gRPC, Data Pipeline, Redis}
           \resumeItemListStart
             \workItem{}
-              {Sole architect and developer of a centralized research data platform, now adopted by \textbf{all systematic desks}}
+              {\textbf{Real-time tick pipeline} that handles 13 billion ticks a day}
             \workItem{}
-              {Built on \textbf{PostgreSQL and Arrow Flight} over gRPC with bidirectional streaming APIs directly from database cursors; deployed on \textbf{Kubernetes}}
+              {Decreased in process performance time by 80\% using perf flamegraph.}
             \workItem{}
-              {Introduced sharded per-desk architecture for independent scalability, enabling heavy-usage teams to run their own stacks, with built-in permissions and TTLs to protect desk-specific IP and restrict the growth of unused data}
+              {Decreased memory footprint of each worker in the cluster from 15GB RAM to 1 GB by optimizing based on sharded scope.}
             \workItem{}
-              {Designed and implemented the research storage API, which became the preferred interface for department-wide data access, prompting migration of other storage systems to use this API due to its intuitive design and streamlined workflow}
-          \resumeItemListEnd
-        \resumeItem{Market Data Infrastructure (Tick Pipeline)}
-          {}
-          \resumeItemListStart
+              {\textbf{Reference data} scraping, parsing and management}
             \workItem{}
-              {Sole developer of a tick data ingestion pipeline ingesting data from multiple market venues in real time, processing \textbf{30B+ market events/day} across \textbf{27M+ unique instruments}}
-            \workItem{}
-              {Built a low-latency, high-throughput system using \textbf{Kafka, Redis, and C++} with concurrent and lock-free design patterns; \textbf{primary expertise is in system design and Python-based data engineering}}
-            \workItem{}
-              {Designed for production resilience, scalable for increased market data needs, and seamlessly rolled out without disruptions to existing usecases}
-          \resumeItemListEnd
-        \resumeItem{Leadership \& Platform Transformation}
-          {}
-          \resumeItemListStart
-            \workItem{}
-              {\textbf{Promoted to Engineering Manager}, leading two teams (6 engineers) focused on data onboarding and data platform infrastructure}
-            \workItem{}
-              {Modernized the data onboarding platform, overseeing migration of \textbf{5,000+ ETL jobs} and reducing onboarding times from 5+ months to \textbf{$<$30 days}}
-            \workItem{}
-              {Architecting and leading the team developing a department-wide data quality and discovery platform, providing validation checks, dataset health monitoring, metadata management, multi-storage support, and data arbitration}
+              {Increased read APIs fault tolerance by implementing retry mechanisms around database connectivity which reduced to 0 support tickets.}
           \resumeItemListEnd
         \resumeItemListEnd
-    \resumeSubheading
-      {University of St. Andrews}{United Kingdom}
-      {Career break for full-time study (details in Education section)}{September 2021 - September 2022}
     \resumeSubheading
       {Bloomberg LP}{London, United Kingdom}
       {Senior Software Engineer}{2019 - September 2021}
@@ -160,17 +166,24 @@ urlcolor=blue
               \workItem{}
               {Worked on \textbf{rearchitecting the ingestion pipeline} from a synchronous pipeline to a file based ingestion.}
               \workItem{}
+              {Migrated the codebase from Python 2 to Python 3 \textbf{decreasing the overall response time of services by 15}\%}
+              \workItem{}
               {Implemented services in GraphQL to avoid overfetching and underfetching on the existing Bloomberg specific microservice framework.}
               \workItem{}
+              {Led \textbf{intergration of the metadata system with timeseries datasets}, a company wide effort to support non-tickerized data.}              
+              \workItem{}
               {Worked on a side project, debugging tool, to help find metadata for given entities regardless of the source of provenience, using a \textbf{topological sort algorithm on service APIs and RDF Graphs}.}
+              \workItem{}
+              {Led the \textbf{research into adoption of triplestores} at Bloomberg, an effort across 6 departments towards choosing the right solution to cover the usecases presented at Bloomberg. Researched on solutions such as Virtuoso or TerminusDB.}
+              \workItem{}
+              {Organized weekly department-wide design discussions, to share knowledge regarding ongoing work.}
               \workItem{}
               {Team lead backup for a team of 7 engineers.}
           \resumeItemListEnd
         \resumeItemListEnd
-      \vspace{2pt}
-      \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-        \textit{\small Software Engineer} & \textit{\small 2016 - 2019} \\
-      \end{tabular*}\vspace{-6pt}
+      \resumeSubheading
+        {Bloomberg LP} {London, United Kingdom}
+        {Software Engineer}{2016 - 2019}
       \resumeItemListStart
         \resumeItem{Real Time Analytics}
           {Application team, maintaining a large variety of analytics, integrated in different products across Bloomberg. Processing several billion trades per day. C++, Distributed, Realtime}
@@ -196,36 +209,10 @@ urlcolor=blue
         {Software Engineer}{2013 - 2016}
         \resumeItemListStart
           \workItem{}
-          {Built a desktop-to-CRM sync tool (workbooks.com) and contributed features and bug fixes to the FAFSA questionnaire.}
+          {Implemented a synchronization tool between a desktop application and an external CRM system (workbooks.com)}
+          \workItem{}
+          {Improved the FAFSA (Federal Student Aid) questionnaire by fixing bugs and adding extra features.}
         \resumeItemListEnd
-  \resumeSubHeadingListEnd
-
-%-----------EDUCATION-----------------
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {University of St. Andrews}{United Kingdom}
-      {MSc Statistics} {Distinction, Deans' List, grade 17.9/20, September 2022}
-    \resumeItemListStart
-    	\resumeItem{Modules}
-        {Markov Chains, Bayesian Statistics, Multivariate Analysis, Statistical Modelling using GLM/GAMs, Quantitative risk analysis, Machine Learning}
-      \resumeItem{Dissertation}
-        {An Ensemble of HMM and KNN for signal generation in horse betting markets. Grade 19.3/20 - Highest grade in my cohort}
-    \resumeItemListEnd
-    \resumeSubheading
-      {University of Sheffield}{Remote, United Kingdom}
-      {Graduate Certificate in Statistics}{Distinction, grade 90/100, July 2021}
-    \resumeItemListStart
-    	\resumeItem{Modules}
-        {Mathematical Methods for Statistics, Probability and Probability Distributions, Basic Statistics}
-    \resumeItemListEnd
-    \resumeSubheading
-      {Politechnica University of Timisoara}{Timisoara, Romania}
-      {B.S.E in Computer Science}{July, 2014}
-    \resumeItemListStart
-    	\resumeItem{Modules}
-        {Software Engineering, Computer Architecture, Algorithms, Software Development Fundamentals, Design Patterns, Programming Languages, Databases}
-    \resumeItemListEnd
   \resumeSubHeadingListEnd
 
 %--------PROGRAMMING SKILLS------------
@@ -239,6 +226,8 @@ urlcolor=blue
         {Maintainer and creator of an inner source library used for Python services at Bloomberg. Created Flask-like middlewares that are used in over 10.000 services running in Python 3 at Bloomberg. Any new service has by default the functionality opted-in.}
         \resumeItem {Python Guild}
         {Part of a group of 18 engineers leading the direction and adoption of Python at Bloomberg, led the Design Reviews Working group, helping teams to bring projects to a broader audience.}
+        \resumeItem {ML 101}
+        {Participated in a 6 month hands on Machine Learning training. The timeseries clustering project developed in a team of 3 was one of the 2 projects out of 15 to be showcased in front of senior management at Bloomberg.}  
       \resumeItemListEnd
     \resumeCoding {Public speaking for large audiences}
       \resumeItemListStart
@@ -250,22 +239,43 @@ urlcolor=blue
     \resumeCoding {Mentorship}
       \resumeItemListStart
         \workItem{}
-        {Mentored interns and junior/mid engineers at Citadel and Bloomberg, conducted interviews, ran workshops on Python 3 migration, and supported new joiners in ramping up and contributing to inner-source projects.}
+        {Mentored in workshops to help engineers migrate their services to Python 3.}
+        \workItem{}
+        {Mentored an intern during the summer internship program.}
+        \workItem{}
+        {Mentored new joiners in the team and helped people contribute to inner-source projects at Bloomberg}
       \resumeItemListEnd
    \item{
-     \textbf{Architecture and technology}{: Large scale distributed systems, Data pipelines, Microservices, GraphQL, PostgreSQL, Redis, Kafka, Solr, RabbitMQ, Event Sourcing, Git, RDF}
+     \textbf{Architecture and technology}{: Large scale distributed systems, Data pipelines, Microservices, GraphQL, PostgreSQL, Redis, Solr, RabbitMQ, Event Sourcing, Git, RDF}
    }
    \item{
-     \textbf{Data onboarding}{: External data ingestion via APIs, SFTP, web scraping and PDF parsing; sources include Bloomberg (PerSecurity/BLPAPI), Refinitiv, S\&P; ETL pipeline management at scale}
-   }
-   \item{
-     \textbf{Languages}{: Python (primary), C++ (production use), JavaScript/TypeScript (basic), SQL}
+     \textbf{Languages}{: Python, Javascript, Typescript, SQL, C\#}
    }
    \item{
      \textbf{Mathematics}{: Probability theory, Markov chains, Bayesian models, GLMs, statistical inference}
    }
-
+   \item{
+     \textbf{Machine Learning}{: Regression, Trees, Ensemble Methods, Boosting, Neural networks, unsupervised learning}
+   }
+   \item{
+     \textbf{Languages spoken}{: I speak English(IELTS Grade 8.0) and Romanian fluently. Currently living in London.}
+   }
+  \item{
+    \textbf{Citizenships}{: British, Romanian, Hungarian}
+  }
  \resumeSubHeadingListEnd
 
+%-----------PROJECTS-----------------
+\section{Personal Projects}
+  \resumeSubHeadingListStart
+    \resumeSubItem {G-Research speed coding challenge}
+    {(October 2021) Second place in Scotland at the university coding challenge organised by G-Research. Competed against teams of 4.}
+    \resumeSubItem {Cryptocurrency analysis https://github.com/erikseulean/cryptoscraping}
+    {(January 2018) Scraped cryptocurrency data from different sources and created a library that allows to easily analyse prices, market cap and volume. I implemented and plotted the Ichimoku indicator and created correlation plots between google trends and different cryptocurrencies. Python: Numpy, Pandas, Matplotlib, Multiprocessing, Jupyter}
+    \resumeSubItem{ColorBlocks}
+      {(November 2015) Awarded 2nd prize competing against 12 teams at HackTM, the largest Hackathon in Eastern Europe lasting 50 hours straight. I was part of a team of three and we developed a cross-platform puzzle game for mobile and tablet devices. Available on Google Play as ColorBlocks. LUA}
+    \resumeSubItem{Cycling Community Platform}
+    	{(October 2012) Awarded 2nd prize competing against 20 teams in Microsoft Excite, three week competition. Developed a mobile and web based platform for the local cycling community. I was part of a team of three students. C\#.NET, Javascript, SQL}
+  \resumeSubHeadingListEnd
 
 \end{document}
