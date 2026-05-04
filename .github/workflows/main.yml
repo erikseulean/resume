@@ -15,10 +15,9 @@ jobs:
       - name: Build pdf
         run: |
           mkdir build
-          pdflatex -interaction=nonstopmode -output-directory=build tex/ErikCristianSeulean_resume.tex 
-          pdflatex -interaction=nonstopmode -output-directory=build tex/me.tex
+          pdflatex -interaction=nonstopmode -output-directory=build tex/ErikCristianSeulean_resume_v3.tex
           mkdir deploy
-          cp build/*.pdf deploy 
+          cp build/*.pdf deploy
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
